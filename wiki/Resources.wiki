@@ -1,7 +1,7 @@
 #summary Useful resources when developing pt-eclipse.
 #labels Featured
 
-= Resources =
+= Useful web sites =
 
   * [http://www.vogella.de/articles/EclipsePlugIn/article.html Eclipse plugin tutorial]
   * [http://www.pivotaltracker.com/help/api Pivotal Tracker API]
