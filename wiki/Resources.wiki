@@ -7,3 +7,5 @@
   * [http://www.pivotaltracker.com/help/api Pivotal Tracker API]
   * [http://www.pivotaltracker.com/help/api?version=v3#subversion_post_commit_example Subversion post-commit hook example]
   * [http://www.eclipse.org/mylyn/ Mylyn, task and application lifecycle management (ALM) framework for Eclipse]
+  * [http://wiki.eclipse.org/index.php/Mylyn/Extensions Existing Mylyn extensions]
+  * [http://community.pivotaltracker.com/pivotal/topics/what_about_an_eclipse_mylyn_connector Eclipse integration issue in Pivotal Tracker community site]
