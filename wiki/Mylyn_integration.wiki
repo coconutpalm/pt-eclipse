@@ -2,7 +2,7 @@
 
 = Mylyn development =
 
-To have a look at what it is like to develop a Mylyn integration, install [Mylyn extras http://download.eclipse.org/tools/mylyn/update/extras] and [Mylyn incubator http://download.eclipse.org/tools/mylyn/update/incubator] via normal plugin installation in Eclipse.
+To have a look at what it is like to develop a Mylyn integration, install [http://download.eclipse.org/tools/mylyn/update/extras Mylyn extras] and [http://download.eclipse.org/tools/mylyn/update/incubator Mylyn incubator] via normal plugin installation in Eclipse.
 
 If you experience problems due to unsolved dependencies, make sure update site "Mylyn for Eclipse 3.4 and 3.5" is enabled (which often seems to be disabled per default).
 
