@@ -1,8 +1,8 @@
 #summary Project management.
-#labels Featured
+#labels Featured,Phase-Implementation
 
 = Project management =
 
-Planning and requirements is taken care of in  [http://www.pivotaltracker.com/projects/65212 this Pivtal Tracker project].
+Planning and requirements is taken care of in  [http://www.pivotaltracker.com/projects/65212 this Pivotal Tracker project].
 
-Drop me a note if you want access to the Pivotal Tracker project.
+Drop me a note if you want access to the Pivotal Tracker project, this Google code project or the [http://webbservern.se:8090 CI server].
