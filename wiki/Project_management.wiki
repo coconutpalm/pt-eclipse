@@ -5,4 +5,4 @@
 
 Planning and requirements is taken care of in  [http://www.pivotaltracker.com/projects/65212 this Pivotal Tracker project].
 
-Drop me a note if you want access to the Pivotal Tracker project, this Google code project or the [http://webbservern.se:8090 CI server].
+Drop me (jonas.liljenfeldt at gmail) a note if you want access to the Pivotal Tracker project, this Google code project or the [http://webbservern.se:8090 CI server].
