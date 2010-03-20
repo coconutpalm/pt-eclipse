@@ -1,0 +1,5 @@
+#summary How to build pt-eclipse
+
+= CI server =
+
+There is a Hudson project at [http://webbservern.se:8090/ webbservern.se] for pt-eclipse. There is still some configuration to be done in this area. Do not hesitate to tell me if you want an account for this Hudson installation.
