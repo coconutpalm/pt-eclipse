@@ -1,4 +1,15 @@
-#summary How to build pt-eclipse
+#summary How to run and build pt-eclipse
+
+= Running pt-eclipse =
+
+There is currently no Eclipse update site available for pt-eclipse. For now you need to follow these steps in order to use pt-eclipse:
+
+ # Check out the source code
+ # Import the two projects (core and ui) as "existing Eclipse projects".
+ # [http://pt-eclipse.googlecode.com/svn/wiki/screenshots/run_as_eclipse_application.png Run the plugin as an Eclipse application].
+ # A new Eclipse window should pop up. Bring up the "Task Repositories" view (Window/Show View), right click in the wiew and select "Add Task Repository". Then it should look like [http://pt-eclipse.googlecode.com/svn/wiki/screenshots/add_task_repo.png this].
+
+To be continued...
 
 = CI server =
 
