@@ -1,7 +1,7 @@
 #summary Useful resources when developing pt-eclipse.
 #labels Featured
 
-= Useful web sites =
+= General useful web sites =
 
   * [http://www.vogella.de/articles/EclipsePlugIn/article.html Eclipse plugin tutorial]
   * [http://www.pivotaltracker.com/help/api Pivotal Tracker API]
@@ -9,3 +9,13 @@
   * [http://www.eclipse.org/mylyn/ Mylyn, task and application lifecycle management (ALM) framework for Eclipse]
   * [http://wiki.eclipse.org/index.php/Mylyn/Extensions Existing Mylyn extensions]
   * [http://community.pivotaltracker.com/pivotal/topics/what_about_an_eclipse_mylyn_connector Eclipse integration issue in Pivotal Tracker community site]
+
+= Mylyn development =
+
+To have a look at what it is like to develop a [http://wiki.eclipse.org/Mylyn Mylyn] integration, install [http://download.eclipse.org/tools/mylyn/update/extras Mylyn extras] and [http://download.eclipse.org/tools/mylyn/update/incubator Mylyn incubator] via normal plugin installation in Eclipse.
+
+If you experience problems due to unsolved dependencies, make sure update site "Mylyn for Eclipse 3.4 and 3.5" is enabled (which often seems to be disabled per default).
+
+[http://blog.bielu.com/2010/03/creating-mylyn-connector-plugin-part-1.html Here] is a great tutorial on how to set up you environment and to get started.
+
+To be continued...
