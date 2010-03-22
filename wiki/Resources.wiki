@@ -19,3 +19,7 @@ If you experience problems due to unsolved dependencies, make sure update site "
 [http://blog.bielu.com/2010/03/creating-mylyn-connector-plugin-part-1.html Here] is a great tutorial on how to set up you environment and to get started.
 
 To be continued...
+
+= Misc =
+
+If you are using Google code for issue management (not Pivotal Tracker), it is still possible to [http://www.jroller.com/alexRuiz/entry/using_mylyn_with_google_code integrate in Eclipse via Mylyn].
