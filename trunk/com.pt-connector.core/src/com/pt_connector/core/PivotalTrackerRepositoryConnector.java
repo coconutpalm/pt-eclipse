@@ -7,87 +7,90 @@ import org.eclipse.mylyn.tasks.core.AbstractRepositoryConnector;
 import org.eclipse.mylyn.tasks.core.IRepositoryQuery;
 import org.eclipse.mylyn.tasks.core.ITask;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
+import org.eclipse.mylyn.tasks.core.data.AbstractTaskDataHandler;
 import org.eclipse.mylyn.tasks.core.data.TaskData;
 import org.eclipse.mylyn.tasks.core.data.TaskDataCollector;
 import org.eclipse.mylyn.tasks.core.sync.ISynchronizationSession;
 
-public class PivotalTrackerRepositoryConnector extends
-		AbstractRepositoryConnector {
+public class PivotalTrackerRepositoryConnector extends AbstractRepositoryConnector {
 
-	@Override
-	public boolean canCreateNewTask(TaskRepository repository) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    private final PivotalTrackerTaskDataHandler taskDataHandler = new PivotalTrackerTaskDataHandler(this);
 
-	@Override
-	public boolean canCreateTaskFromKey(TaskRepository repository) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean canCreateNewTask(TaskRepository repository) {
+        return true;
+    }
 
-	@Override
-	public String getConnectorKind() {
-		return PivotalTrackerCorePlugin.CONNECTOR_KIND;
-	}
+    @Override
+    public boolean canCreateTaskFromKey(TaskRepository repository) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public String getLabel() {
-		return "Pivotal Tracker Repository";
-	}
+    @Override
+    public String getConnectorKind() {
+        return PivotalTrackerCorePlugin.CONNECTOR_KIND;
+    }
 
-	@Override
-	public String getRepositoryUrlFromTaskUrl(String taskFullUrl) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String getLabel() {
+        return "Pivotal Tracker Repository";
+    }
 
-	@Override
-	public TaskData getTaskData(TaskRepository taskRepository, String taskId,
-			IProgressMonitor monitor) throws CoreException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String getRepositoryUrlFromTaskUrl(String taskFullUrl) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public String getTaskIdFromTaskUrl(String taskFullUrl) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public TaskData getTaskData(TaskRepository taskRepository, String taskId, IProgressMonitor monitor)
+            throws CoreException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public String getTaskUrl(String repositoryUrl, String taskId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public AbstractTaskDataHandler getTaskDataHandler() {
+        return taskDataHandler;
+    }
 
-	@Override
-	public boolean hasTaskChanged(TaskRepository taskRepository, ITask task,
-			TaskData taskData) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public String getTaskIdFromTaskUrl(String taskFullUrl) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public IStatus performQuery(TaskRepository repository,
-			IRepositoryQuery query, TaskDataCollector collector,
-			ISynchronizationSession session, IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String getTaskUrl(String repositoryUrl, String taskId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public void updateRepositoryConfiguration(TaskRepository taskRepository,
-			IProgressMonitor monitor) throws CoreException {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public boolean hasTaskChanged(TaskRepository taskRepository, ITask task, TaskData taskData) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public void updateTaskFromTaskData(TaskRepository taskRepository,
-			ITask task, TaskData taskData) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public IStatus performQuery(TaskRepository repository, IRepositoryQuery query, TaskDataCollector collector,
+            ISynchronizationSession session, IProgressMonitor monitor) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void updateRepositoryConfiguration(TaskRepository taskRepository, IProgressMonitor monitor)
+            throws CoreException {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void updateTaskFromTaskData(TaskRepository taskRepository, ITask task, TaskData taskData) {
+        // TODO Auto-generated method stub
+
+    }
 
 }
