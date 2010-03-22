@@ -6,6 +6,9 @@ import sun.reflect.ReflectionFactory;
 
 import java.lang.reflect.*;
 
+/**
+ * @see http://www.jroller.com/VelkaVrana/entry/modify_enum_with_reflection
+ */
 public class ReflectionUtil {
 
     public static Field getField(final Class beanClass, final String fieldName) throws NoSuchFieldException {
@@ -28,9 +31,8 @@ public class ReflectionUtil {
         return field;
     }
 
-
-    public static Object getFieldValue(Object bean,
-                                       String fieldName) throws NoSuchFieldException, IllegalAccessException {
+    public static Object getFieldValue(Object bean, String fieldName) throws NoSuchFieldException,
+            IllegalAccessException {
         Field field = getField(bean.getClass(), fieldName);
         boolean accessible = field.isAccessible();
         Object value = null;
@@ -45,9 +47,8 @@ public class ReflectionUtil {
         return value;
     }
 
-
-    public static void setFieldValue(final Object bean, final String fieldName,
-                                     Object newValue) throws NoSuchFieldException, IllegalAccessException {
+    public static void setFieldValue(final Object bean, final String fieldName, Object newValue)
+            throws NoSuchFieldException, IllegalAccessException {
         Field field = getField(bean.getClass(), fieldName);
         boolean accessible = field.isAccessible();
 
@@ -59,8 +60,8 @@ public class ReflectionUtil {
         }
     }
 
-    public static Object getStaticFieldValue(final Class beanClass,
-                                             final String fieldName) throws NoSuchFieldException, IllegalAccessException {
+    public static Object getStaticFieldValue(final Class beanClass, final String fieldName)
+            throws NoSuchFieldException, IllegalAccessException {
         Field field = getField(beanClass, fieldName);
         boolean accessible = field.isAccessible();
         Object value = null;
@@ -75,29 +76,26 @@ public class ReflectionUtil {
         return value;
     }
 
-
     /**
      * <b>Experimental and too much related to internal java implementation - use on your own risk</b>
      */
-    public static void setStaticFieldValue(final Class beanClass, final String fieldName,
-                                           final Object newValue) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+    public static void setStaticFieldValue(final Class beanClass, final String fieldName, final Object newValue)
+            throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         // TODO: find some better way how to change static field
         Field field = getField(beanClass, fieldName);
         boolean accessible = field.isAccessible();
 
         field.setAccessible(true);
         try {
-            FieldAccessor fieldAccessor = (FieldAccessor) invokeMethod(field, "getFieldAccessor", new Class[]{
-                    Object.class
-            }, new Object[]{
-                    beanClass
-            });
+            FieldAccessor fieldAccessor =
+                    (FieldAccessor) invokeMethod(field, "getFieldAccessor", new Class[] {Object.class},
+                            new Object[] {beanClass});
 
             Object isReadOnly = getFieldValue(fieldAccessor, "isReadOnly");
             try {
                 setFieldValue(fieldAccessor, "isReadOnly", false);
 
-//                field.set(beanClass, newValue);
+                // field.set(beanClass, newValue);
                 fieldAccessor.set(beanClass, newValue);
             } finally {
                 setFieldValue(fieldAccessor, "isReadOnly", isReadOnly);
@@ -107,14 +105,13 @@ public class ReflectionUtil {
         }
     }
 
-
     /**
      * <b>Experimental - is using class from sun.* package - use on your own risk</b>
-     *
+     * 
      * this code has been inspired by the page: http://www.javaspecialists.eu/archive/Issue161.html
      */
-    public static void setStaticFieldValue2(final Class beanClass, final String fieldName,
-                                            final Object newValue) throws NoSuchFieldException, IllegalAccessException {
+    public static void setStaticFieldValue2(final Class beanClass, final String fieldName, final Object newValue)
+            throws NoSuchFieldException, IllegalAccessException {
         // TODO: find some better way how to change static field
         Field field = getField(beanClass, fieldName);
         boolean accessible = field.isAccessible();
@@ -127,7 +124,8 @@ public class ReflectionUtil {
             try {
                 // this code uses class from sun.* package and as of this there is no warranty
                 // that it will exist in the next java release
-                FieldAccessor fieldAccessor = ReflectionFactory.getReflectionFactory().newFieldAccessor(field, false);
+                FieldAccessor fieldAccessor =
+                        ReflectionFactory.getReflectionFactory().newFieldAccessor(field, false);
                 fieldAccessor.set(null, newValue);
             } finally {
                 setFieldValue(field, "modifiers", modifiers);
@@ -141,9 +139,8 @@ public class ReflectionUtil {
     /* ----- method processing ----- */
     /* ============================= */
 
-
-    public static Method getMethod(final Class beanClass, final String methodName,
-                                   final Class... parameterTypes) throws NoSuchMethodException {
+    public static Method getMethod(final Class beanClass, final String methodName, final Class... parameterTypes)
+            throws NoSuchMethodException {
 
         Method method = null;
 
@@ -164,9 +161,8 @@ public class ReflectionUtil {
         return method;
     }
 
-
     public static Object invokeMethod(final Object bean, final String methodName, final Class[] parameterTypes,
-                                      final Object[] values) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            final Object[] values) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         Method method = getMethod(bean.getClass(), methodName, parameterTypes);
         boolean accessible = method.isAccessible();
         Object value = null;
@@ -185,15 +181,14 @@ public class ReflectionUtil {
     /* ----- constructor processing ----- */
     /* ================================== */
 
-
-    public static Constructor getConstructor(final Class beanClass,
-                                             final Class... parameterTypes) throws NoSuchMethodException {
+    public static Constructor getConstructor(final Class beanClass, final Class... parameterTypes)
+            throws NoSuchMethodException {
         return beanClass.getDeclaredConstructor(parameterTypes);
     }
 
-
     public static Object invokeConstructor(final Class beanClass, final Class[] parameterTypes,
-                                           final Object[] values) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+            final Object[] values) throws NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException {
         Constructor constructor = getConstructor(beanClass, parameterTypes);
         boolean accessible = constructor.isAccessible();
         Object value = null;
@@ -208,19 +203,20 @@ public class ReflectionUtil {
         return value;
     }
 
-
     /**
      * <b>Experimental and too much related to internal java implementation - use on your own risk</b>
      */
     public static Object invokeEnumConstructor(final Class beanClass, final Class[] parameterTypes,
-                                               final Object[] values) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
+            final Object[] values) throws NoSuchMethodException, InvocationTargetException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
         Constructor constructor = getConstructor(beanClass, parameterTypes);
         boolean accessible = constructor.isAccessible();
         Object value = null;
 
         constructor.setAccessible(true);
         try {
-            ConstructorAccessor constructorAccessor = (ConstructorAccessor) getFieldValue(constructor, "constructorAccessor");
+            ConstructorAccessor constructorAccessor =
+                    (ConstructorAccessor) getFieldValue(constructor, "constructorAccessor");
             if (constructorAccessor == null) {
                 invokeMethod(constructor, "acquireConstructorAccessor", new Class[0], new Object[0]);
                 constructorAccessor = (ConstructorAccessor) getFieldValue(constructor, "constructorAccessor");
