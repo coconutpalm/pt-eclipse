@@ -11,7 +11,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.mylyn.tasks.core.RepositoryTemplate;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipse.mylyn.tasks.ui.wizards.AbstractRepositorySettingsPage;
-import org.eclipse.mylyn.tasks.ui.wizards.AbstractRepositorySettingsPage.Validator;
 import org.eclipse.swt.widgets.Composite;
 
 import com.pt_connector.core.PivotalTrackerCorePlugin;
@@ -34,11 +33,7 @@ public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySetti
     @Override
     public void createControl(Composite parent) {
         super.createControl(parent);
-        addRepositoryTemplatesToServerUrlCombo();
-        if (repository == null) {
-            setUrl(serverUrl);
-        }
-        
+
         // FIXME Not a very nice way of changing the label values.
         try {
             ReflectionUtil.setStaticFieldValue(AbstractRepositorySettingsPage.class, "LABEL_USER", "Project Id:");
@@ -52,8 +47,13 @@ public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySetti
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        
         savePasswordButton.setText("Save token");
+                
+        addRepositoryTemplatesToServerUrlCombo();
+        
+        if (repository == null) {
+            setUrl(serverUrl);
+        }
     }
     
     @Override
