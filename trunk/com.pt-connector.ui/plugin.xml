@@ -17,10 +17,9 @@
    <extension
          point="org.eclipse.mylyn.tasks.core.templates">
       <repository
-            characterEncoding="UTF-8"
             label="Pivotal Tracker Connector"
             repositoryKind="PT"
-            urlRepository="http://www.pivotaltracker.com/services/v3/projects/67330/stories">
+            urlRepository="http://bielu.com/repo">
       </repository>
    </extension>
    <extension

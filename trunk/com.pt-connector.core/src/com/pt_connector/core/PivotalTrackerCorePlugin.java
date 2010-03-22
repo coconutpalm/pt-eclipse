@@ -11,7 +11,7 @@ public class PivotalTrackerCorePlugin extends Plugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "com.pt_connector.core";
 
-	public static final String CONNECTOR_KIND = "PT";
+	public static final String CONNECTOR_KIND = "Pivotal Tracker";
 
 	// The shared instance
 	private static PivotalTrackerCorePlugin plugin;
