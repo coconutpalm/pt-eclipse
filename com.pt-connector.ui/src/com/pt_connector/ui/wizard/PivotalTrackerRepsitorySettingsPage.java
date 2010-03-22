@@ -1,6 +1,6 @@
 package com.pt_connector.ui.wizard;
 
-import java.lang.reflect.InvocationTargetException;
+//import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -14,41 +14,34 @@ import org.eclipse.mylyn.tasks.ui.wizards.AbstractRepositorySettingsPage;
 import org.eclipse.swt.widgets.Composite;
 
 import com.pt_connector.core.PivotalTrackerCorePlugin;
-import com.pt_connector.core.util.ReflectionUtil;
 import com.pt_connector.ui.PivotalTrackerUIPlugin;
 
 public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySettingsPage {
 
+    protected static final String LABEL_USER = Messages.PivotalTrackerRepositorySettingsPage_Project_ID_;
+
+    protected static String LABEL_PASSWORD = Messages.PivotalTrackerRepositorySettingsPage_Api_Token_;
+
+    private static final String TITLE = Messages.PivotalTrackerRepositorySettingsPage_PIVOTAL_TRACKER_REPOSITORY_SETTINGS;
+
+    private static final String DESCRIPTION = Messages.PivotalTrackerRepositorySettingsPage_URL_EXAMPLE;
+
     String serverUrl = "http://www.pivotaltracker.com/services/v3/";
 
     public PivotalTrackerRepsitorySettingsPage(TaskRepository taskRepository) {
-        super("Pivotal Tracker Repository Settings", "Settings for Pivotal Tracker Repository", taskRepository);
+        super(TITLE, DESCRIPTION, taskRepository);
         setNeedsAnonymousLogin(false);
         setNeedsEncoding(false);
         setNeedsTimeZone(false);
         setNeedsAdvanced(false);
         setNeedsHttpAuth(false);
     }
-
+    
     @Override
     public void createControl(Composite parent) {
         super.createControl(parent);
-
-        // FIXME Not a very nice way of changing the label values.
-        try {
-            ReflectionUtil.setStaticFieldValue(AbstractRepositorySettingsPage.class, "LABEL_USER", "Project Id:");
-            ReflectionUtil.setStaticFieldValue(AbstractRepositorySettingsPage.class, "LABEL_PASSWORD", "API Token:");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
         savePasswordButton.setText("Save token");
-                
+         
         addRepositoryTemplatesToServerUrlCombo();
         
         if (repository == null) {
@@ -60,14 +53,7 @@ public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySetti
     protected void repositoryTemplateSelected(RepositoryTemplate template) {
         repositoryLabelEditor.setStringValue(template.label);
         setUrl(template.repositoryUrl);
-        setUserId("user");
-        setPassword("pass");
         getContainer().updateButtons();
-    }
-
-    @Override
-    protected void createAdditionalControls(Composite parent) {
-        // TODO Auto-generated method stub
     }
 
     @Override
@@ -111,5 +97,11 @@ public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySetti
             }
             // TODO More validation here. Project id and API token should be integers only etc.
         }
+    }
+    
+    @Override
+    protected void createAdditionalControls(Composite parent) {
+        // TODO Auto-generated method stub
+        
     }
 }

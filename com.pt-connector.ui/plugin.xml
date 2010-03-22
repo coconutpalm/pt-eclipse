@@ -17,7 +17,8 @@
    <extension
          point="org.eclipse.mylyn.tasks.core.templates">
       <repository
-	        characterEncoding="UTF-8"
+            addAutomatically="true"
+            characterEncoding="UTF-8"
             label="Pivotal Tracker Connector"
             repositoryKind="PivotalTracker"
             urlRepository="http://www.pivotaltracker.com/services/v3/projects/67330/stories">
