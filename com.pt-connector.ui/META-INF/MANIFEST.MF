@@ -5,13 +5,14 @@ Bundle-SymbolicName: com.pt_connector.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.pt_connector.ui.PivotalTrackerUIPlugin
 Bundle-Vendor: pt-connector.com
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.ui.forms;bundle-version="3.4.1",
- com.pt_connector.core;bundle-version="1.0.0",
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.ui.forms,
  org.eclipse.mylyn.commons.core;bundle-version="[3.3.2,4.0.0)",
- org.eclipse.mylyn.commons.ui;bundle-version="[3.3.2,4.0.0)",
  org.eclipse.mylyn.tasks.core;bundle-version="[3.3.2,4.0.0)",
- org.eclipse.mylyn.tasks.ui;bundle-version="[3.3.2,4.0.0)"
+ org.eclipse.mylyn.tasks.ui;bundle-version="[3.3.2,4.0.0)",
+ com.pt_connector.core;bundle-version="1.0.0",
+ org.eclipse.mylyn.commons.net;bundle-version="[3.3.0,4.0.0)",
+ org.eclipse.mylyn.commons.ui;bundle-version="[3.3.2,4.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

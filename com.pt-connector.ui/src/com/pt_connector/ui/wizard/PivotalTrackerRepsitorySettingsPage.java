@@ -17,7 +17,6 @@ public class PivotalTrackerRepsitorySettingsPage extends
 		setNeedsTimeZone(false);
 		setNeedsAdvanced(false);
 		setNeedsHttpAuth(false);
-		setNeedsValidation(false);
 	}
 		
 	@Override
@@ -30,9 +29,6 @@ public class PivotalTrackerRepsitorySettingsPage extends
 	protected void repositoryTemplateSelected(RepositoryTemplate template) {
 		repositoryLabelEditor.setStringValue(template.label);
 		setUrl(template.repositoryUrl);
-		setUserId("user");
-		setPassword("pass");
-		
 		getContainer().updateButtons();
 	}
 
