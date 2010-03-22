@@ -1,14 +1,22 @@
 package com.pt_connector.ui.wizard;
 
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.mylyn.tasks.core.RepositoryTemplate;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipse.mylyn.tasks.ui.wizards.AbstractRepositorySettingsPage;
+import org.eclipse.mylyn.tasks.ui.wizards.AbstractRepositorySettingsPage.Validator;
 import org.eclipse.swt.widgets.Composite;
 
 import com.pt_connector.core.PivotalTrackerCorePlugin;
 import com.pt_connector.core.util.ReflectionUtil;
+import com.pt_connector.ui.PivotalTrackerUIPlugin;
 
 public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySettingsPage {
 
@@ -69,13 +77,39 @@ public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySetti
 
     @Override
     protected Validator getValidator(TaskRepository repository) {
-        // TODO Auto-generated method stub
-        return null;
+        return new PivotalTrackerRepositoryValidator(repository);
     }
 
     @Override
     protected boolean isValidUrl(String url) {
-        return url != null && url.trim().length() > 0;
+        return url != null && url.trim().length() > 0 && url.startsWith("http");
     }
 
+    @Override
+    protected void applyValidatorResult(Validator validator) {
+        PivotalTrackerRepositoryValidator pivotalTrackerRepositoryValidator = (PivotalTrackerRepositoryValidator) validator;
+
+        // TODO Do something useful here.
+        
+        super.applyValidatorResult(validator);
+    }
+
+    public class PivotalTrackerRepositoryValidator extends Validator {
+
+        final TaskRepository repository;
+
+        public PivotalTrackerRepositoryValidator(TaskRepository repository) {
+            this.repository = repository;
+        }
+
+        @Override
+        public void run(IProgressMonitor monitor) throws CoreException {
+            try {
+                new URL(repository.getRepositoryUrl());
+            } catch (MalformedURLException ex) {
+                throw new CoreException(new Status(IStatus.ERROR, PivotalTrackerUIPlugin.PLUGIN_ID, IStatus.OK, INVALID_REPOSITORY_URL, null));
+            }
+            // TODO More validation here. Project id and API token should be integers only etc.
+        }
+    }
 }
