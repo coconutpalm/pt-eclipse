@@ -18,10 +18,6 @@ import com.pt_connector.ui.PivotalTrackerUIPlugin;
 
 public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySettingsPage {
 
-    protected static final String LABEL_USER = Messages.PivotalTrackerRepositorySettingsPage_Project_ID_;
-
-    protected static String LABEL_PASSWORD = Messages.PivotalTrackerRepositorySettingsPage_Api_Token_;
-
     private static final String TITLE = Messages.PivotalTrackerRepositorySettingsPage_PIVOTAL_TRACKER_REPOSITORY_SETTINGS;
 
     private static final String DESCRIPTION = Messages.PivotalTrackerRepositorySettingsPage_URL_EXAMPLE;
