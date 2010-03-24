@@ -22,8 +22,6 @@ public class PivotalTrackerRepositorySettingsPage extends AbstractRepositorySett
 
     private static final String DESCRIPTION = Messages.PivotalTrackerRepositorySettingsPage_URL_EXAMPLE;
 
-    String serverUrl = "http://www.pivotaltracker.com/services/v3/";
-
     public PivotalTrackerRepositorySettingsPage(TaskRepository taskRepository) {
         super(TITLE, DESCRIPTION, taskRepository);
         setNeedsAnonymousLogin(false);
@@ -32,19 +30,13 @@ public class PivotalTrackerRepositorySettingsPage extends AbstractRepositorySett
         setNeedsAdvanced(false);
         setNeedsHttpAuth(false);
     }
-    
+
     @Override
     public void createControl(Composite parent) {
         super.createControl(parent);
-        savePasswordButton.setText("Save token");
-         
         addRepositoryTemplatesToServerUrlCombo();
-        
-        if (repository == null) {
-            setUrl(serverUrl);
-        }
     }
-    
+
     @Override
     protected void repositoryTemplateSelected(RepositoryTemplate template) {
         repositoryLabelEditor.setStringValue(template.label);
@@ -72,7 +64,7 @@ public class PivotalTrackerRepositorySettingsPage extends AbstractRepositorySett
         PivotalTrackerRepositoryValidator pivotalTrackerRepositoryValidator = (PivotalTrackerRepositoryValidator) validator;
 
         // TODO Do something useful here.
-        
+
         super.applyValidatorResult(validator);
     }
 
@@ -89,15 +81,16 @@ public class PivotalTrackerRepositorySettingsPage extends AbstractRepositorySett
             try {
                 new URL(repository.getRepositoryUrl());
             } catch (MalformedURLException ex) {
-                throw new CoreException(new Status(IStatus.ERROR, PivotalTrackerUIPlugin.PLUGIN_ID, IStatus.OK, INVALID_REPOSITORY_URL, null));
+                throw new CoreException(new Status(IStatus.ERROR, PivotalTrackerUIPlugin.PLUGIN_ID, IStatus.OK,
+                        INVALID_REPOSITORY_URL, null));
             }
             // TODO More validation here. Project id and API token should be integers only etc.
         }
     }
-    
+
     @Override
     protected void createAdditionalControls(Composite parent) {
         // TODO Auto-generated method stub
-        
+
     }
 }

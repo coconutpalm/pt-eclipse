@@ -24,6 +24,7 @@ public class Messages extends NLS {
 
     public static String PivotalTrackerRepositorySettingsPage_URL_EXAMPLE;
 
+    public static String PivotalTrackerRepositorySettingsPage_Save_Api_Token;
 	static {
 		// load message values from bundle file
 		reloadMessages();
