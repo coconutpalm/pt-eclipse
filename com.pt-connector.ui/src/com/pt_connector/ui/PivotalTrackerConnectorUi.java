@@ -9,7 +9,7 @@ import org.eclipse.mylyn.tasks.ui.wizards.ITaskRepositoryPage;
 import org.eclipse.mylyn.tasks.ui.wizards.NewTaskWizard;
 
 import com.pt_connector.core.PivotalTrackerCorePlugin;
-import com.pt_connector.ui.wizard.PivotalTrackerRepsitorySettingsPage;
+import com.pt_connector.ui.wizard.PivotalTrackerRepositorySettingsPage;
 
 public class PivotalTrackerConnectorUi extends AbstractRepositoryConnectorUi {
 
@@ -37,7 +37,7 @@ public class PivotalTrackerConnectorUi extends AbstractRepositoryConnectorUi {
 
 	@Override
 	public ITaskRepositoryPage getSettingsPage(TaskRepository taskRepository) {
-		return new PivotalTrackerRepsitorySettingsPage(taskRepository);
+		return new PivotalTrackerRepositorySettingsPage(taskRepository);
 	}
 
 	@Override

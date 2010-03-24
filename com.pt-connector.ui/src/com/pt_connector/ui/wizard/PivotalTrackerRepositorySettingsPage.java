@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.pt_connector.core.PivotalTrackerCorePlugin;
 import com.pt_connector.ui.PivotalTrackerUIPlugin;
 
-public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySettingsPage {
+public class PivotalTrackerRepositorySettingsPage extends AbstractRepositorySettingsPage {
 
     private static final String TITLE = Messages.PivotalTrackerRepositorySettingsPage_PIVOTAL_TRACKER_REPOSITORY_SETTINGS;
 
@@ -24,7 +24,7 @@ public class PivotalTrackerRepsitorySettingsPage extends AbstractRepositorySetti
 
     String serverUrl = "http://www.pivotaltracker.com/services/v3/";
 
-    public PivotalTrackerRepsitorySettingsPage(TaskRepository taskRepository) {
+    public PivotalTrackerRepositorySettingsPage(TaskRepository taskRepository) {
         super(TITLE, DESCRIPTION, taskRepository);
         setNeedsAnonymousLogin(false);
         setNeedsEncoding(false);
