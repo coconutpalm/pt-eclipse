@@ -8,10 +8,10 @@
             name="Pivotal Tracker Connector Core">
       </connectorCore>
       <connectorUi
-            brandingIcon="icons/trac-icon.gif"
+            brandingIcon="icons/pt-icon.gif"
             class="com.pt_connector.ui.PivotalTrackerConnectorUi"
             name="Pivotal Tracker Connector UI"
-            overlayIcon="icons/overlay-trac.gif">
+            overlayIcon="icons/overlay-pt.gif">
       </connectorUi>
    </extension>
    <extension
