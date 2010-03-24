@@ -21,7 +21,7 @@
             characterEncoding="UTF-8"
             label="Pivotal Tracker Connector"
             repositoryKind="PivotalTracker"
-            urlRepository="http://www.pivotaltracker.com/services/v3/projects/67330/stories">
+            urlRepository="http://www.pivotaltracker.com/services/v3/projects">
       </repository>
    </extension>
    <extension
