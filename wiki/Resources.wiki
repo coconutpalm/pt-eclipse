@@ -19,7 +19,10 @@ If you experience problems due to unsolved dependencies, make sure update site "
 
 [http://blog.bielu.com/2010/03/creating-mylyn-connector-plugin-part-1.html Here] is a great tutorial on how to set up you environment and to get started.
 
-To be continued...
+IBM has written something two articles about Mylyn 2.0. It is an old version but parts of it might still be valuable.
+
+  * [http://www.ibm.com/developerworks/java/library/j-mylyn1/ Part 1]
+  * [http://www.ibm.com/developerworks/java/library/j-mylyn2/ Part 2]
 
 = Misc =
 
